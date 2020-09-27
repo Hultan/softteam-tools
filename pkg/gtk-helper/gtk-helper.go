@@ -35,9 +35,9 @@ func GtkHelperNewFromFile(fileName string) *GtkHelper {
 	exePath:=resources.GetExecutablePath()
 	gladePath:=path.Join(exePath, fileName)
 	if !exists(gladePath) {
-		gladePath=path.Join(exePath, "resources", fileName)
+		gladePath=path.Join(exePath, "assets", fileName)
 		if !exists(gladePath) {
-			gladePath=path.Join(exePath, "../resources", fileName)
+			gladePath=path.Join(exePath, "../assets", fileName)
 			if !exists(gladePath) {
 				return nil
 			}

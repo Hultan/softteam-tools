@@ -9,7 +9,7 @@ import (
 
 const (
 	constDateLayoutBackup = "20060102_0304"
-	constConfigPath = "/.config/softteam/database-backup.config"
+	constConfigPath       = "/.config/softteam/database-backup.config"
 )
 
 func main() {
@@ -27,13 +27,14 @@ func main() {
 	fmt.Println("")
 
 	for _, item := range config.Databases {
-		fmt.Println("Starting backup up database :",item)
+		fmt.Println("Starting backup up database :", item)
 		err := backup(item, config.Destination.Path)
-		if err!=nil {
+		if err != nil {
 			fmt.Println("Error when backing up database :", item, ":", err.Error())
-		} else {
-			fmt.Println("Finished backing up database :", item, "!")
+			return
 		}
+		
+		fmt.Println("Finished backing up database :", item, "!")
 	}
 }
 

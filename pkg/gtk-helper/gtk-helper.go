@@ -392,3 +392,17 @@ func (g *GtkHelper) GetDialog(name string) (*gtk.Dialog, error) {
 
 	return nil, errors.New("not a gtk dialog")
 }
+
+// GetAboutDialog : Gets an about dialog from the builder
+func (g *GtkHelper) GetAboutDialog(name string) (*gtk.AboutDialog, error) {
+	obj, err := g.builder.GetObject(name)
+	if err != nil {
+		// object not found
+		return nil, err
+	}
+	if aboutDialog, ok := obj.(*gtk.AboutDialog); ok {
+		return aboutDialog, nil
+	}
+
+	return nil, errors.New("not a gtk about dialog")
+}

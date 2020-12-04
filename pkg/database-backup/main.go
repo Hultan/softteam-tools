@@ -9,7 +9,7 @@ import (
 
 const (
 	constDateLayoutBackup = "20060102_0304"
-	constConfigPath       = "/.config/softteam/database-backup.config"
+	constConfigPath       = "/.config/softteam/backup/backup.config"
 )
 
 func main() {
